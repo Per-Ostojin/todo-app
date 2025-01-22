@@ -1,0 +1,24 @@
+.input-wrapper {
+    display: flex;
+}
+
+.input {
+    width: 200px;
+    border: solid 1px #d197ff;
+    border-right: none;
+    background-color: transparent;
+    color: white;
+    padding-left: 10px;
+}
+
+.input:focus-within {
+    outline: none;
+}
+
+.input:focus {
+    color: white;
+}
+
+.add-button {
+    color: #00c875;
+}

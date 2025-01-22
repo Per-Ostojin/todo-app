@@ -1,0 +1,16 @@
+.todo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2c2c2c;
+    border-left: solid 3px #d197ff;
+}
+
+.todo-entry {
+    width: 197px;
+    padding-left: 10px;
+}
+
+.complete-button {
+    color: #ffa44f;
+}
