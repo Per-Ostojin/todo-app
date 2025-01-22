@@ -30,6 +30,11 @@ En enkel och responsiv todo-app byggd med **React**. Appen låter användare lä
 
 - **CSS**: För styling och layout. 
 
+## Skärmdumpar 
+
+## Demo  
+[Se Todo App live här!](https://pers-todo-app.netlify.app/)
+
 ## Förbättringsmöjligheter 
 - Lägg till funktion för att rensa alla klara uppgifter. 
 - Implementera kategorier eller deadlines för uppgifter. 
