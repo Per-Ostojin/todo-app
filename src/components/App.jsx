@@ -4,40 +4,54 @@ import Input from './Input.jsx';
 import List from './List.jsx';
 
 function App() {
-	const [todo, setTodo] = useState('');
-	const [todos, setTodos] = useState([]);
-	const [loading, setLoading] = useState(true);
+    const [todo, setTodo] = useState('');
+    const [todos, setTodos] = useState([]);
+    const [loading, setLoading] = useState(false);
 
-	useEffect(() => {
-		fetch('https://jsonplaceholder.typicode.com/todos')
-			.then((res) => res.json())
-			.then((data) => {
-				const uncompletedTodos = data.filter((todo) => !todo.completed).map((todo) => todo.title);
-					setTodos(uncompletedTodos);
-					setLoading(false)
-			});
-	}, []);
+    // Läs todos från LocalStorage vid sidladdning
+    useEffect(() => {
+        try {
+            const savedTodos = localStorage.getItem('todos');
+            console.log("Fetched todos from LocalStorage:", savedTodos); // Logga vad som hämtas
+            if (savedTodos) {
+                setTodos(JSON.parse(savedTodos));
+            }
+        } catch (error) {
+            console.error("Error loading todos from LocalStorage:", error);
+        }
+    }, []);
 
-	const addTodo = () => {
-		console.log(todos);
-		if (todo !== '') {
-			setTodos([...todos, todo]);
-			setTodo('');
-		}
-	};
+    // Spara todos till LocalStorage när de ändras
+    useEffect(() => {
+        if (todos.length > 0) {
+            console.log("Saving todos to LocalStorage:", todos);
+            localStorage.setItem('todos', JSON.stringify(todos));
+        }
+    }, [todos]);
 
-	const complete = (text) => {
-		const uncompletedTodos = todos.filter((todo) => todo !== text);
-		setTodos(uncompletedTodos);
-	};
+    const addTodo = () => {
+        if (todo !== '') {
+            setTodos((prevTodos) => {
+                console.log("Adding todo:", todo);
+                console.log("Updated todos:", [...prevTodos, todo]);
+                return [...prevTodos, todo];
+            });
+            setTodo('');
+        }
+    };
 
-	return (
-		<div className="App">
-			<img className="logo" src="/logo.png" alt="techover" />
-			<Input setTodo={setTodo} todo={todo} addTodo={addTodo} />
-			<List todos={todos} complete={complete} loading={loading}/>
-		</div>
-	);
+    const complete = (text) => {
+        const uncompletedTodos = todos.filter((todo) => todo !== text);
+        setTodos(uncompletedTodos);
+    };
+
+    return (
+        <div className="App">
+            <img className="logo" src="/logo.png" alt="techover" />
+            <Input setTodo={setTodo} todo={todo} addTodo={addTodo} />
+            <List todos={todos} complete={complete} loading={loading} />
+        </div>
+    );
 }
 
 export default App;
