@@ -1,8 +1,39 @@
-# React + Vite
+# Todo App 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+En enkel och responsiv todo-app byggd med **React**. Appen låter användare lägga till, markera som klar och ta bort uppgifter. Alla uppgifter sparas i **LocalStorage**, vilket gör att de inte försvinner vid sidladdning. 
 
-Currently, two official plugins are available:
+## Funktioner 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 📝 Lägg till nya uppgifter 
+
+- ✅ Markera uppgifter som klara 
+
+- ❌ Ta bort uppgifter 
+
+- 🔄 Automatisk sparning i LocalStorage 
+
+## Installation och användning 
+
+1. **Klona detta repository**: ```bash git clone https://github.com/Per-Ostojin/todo-app.git ``` 
+
+2. **Gå till projektmappen**: ```bash cd todo-app ``` 
+
+3. **Installera beroenden**: ```bash npm install ``` 
+
+4. **Starta utvecklingsservern**: ```bash npm run dev ``` 
+
+## Tekniker och bibliotek som används 
+
+- **React**: Komponentbaserat ramverk för att bygga användargränssnitt. 
+
+- **LocalStorage**: För att spara användarens todos. 
+
+- **CSS**: För styling och layout. 
+
+## Förbättringsmöjligheter 
+- Lägg till funktion för att rensa alla klara uppgifter. 
+- Implementera kategorier eller deadlines för uppgifter. 
+- Lägg till användarkonton med backend-stöd. 
+
+## Författare 
+Skapad av [Per Ostojin](https://github.com/Per-Ostojin).
